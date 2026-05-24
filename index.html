@@ -20,12 +20,12 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);m
 
 /* ═══ HEADER ═══ */
 header{background:var(--yellow);border-bottom:3px solid var(--red)}
-.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px 0}
+.header-inner{max-width:1200px;margin:0 auto;padding:18px 20px 0}
 .header-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .header-brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
 .header-logo{width:40px;height:40px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .header-texts{min-width:0;flex:1}
-.header-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:28px;line-height:1.05;color:var(--red);letter-spacing:-.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:22px;line-height:1.15;color:var(--red);letter-spacing:-.3px}
 .header-sub{font-size:12px;color:#7A5A12;margin-top:2px;font-weight:500}
 .header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.5);border-radius:20px;padding:3px;border:1.5px solid rgba(214,53,39,.25)}
@@ -112,9 +112,9 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 /* ═══ MOBILE BOTTOM NAV (replaces tabs on small screens) ═══ */
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:2px solid var(--border);z-index:200}
 .bottom-nav-inner{display:flex;max-width:1200px;margin:0 auto}
-.bottom-nav-btn{flex:1;border:none;background:transparent;padding:12px 0 calc(14px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;transition:color .12s;touch-action:manipulation}
+.bottom-nav-btn{flex:1;border:none;background:transparent;padding:14px 8px calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;transition:color .12s;touch-action:manipulation;letter-spacing:.01em}
 .bottom-nav-btn.active{color:var(--red)}
-.bottom-nav-btn .bnicon{font-size:22px;line-height:1}
+.bottom-nav-btn .bnicon{display:none}
 
 /* ═══ MODAL ═══ */
 .modal-overlay{position:fixed;inset:0;background:rgba(28,28,26,.55);z-index:1000;display:none;align-items:flex-end;justify-content:center}
@@ -152,8 +152,9 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 /* Desktop (≥ 768px): show header tabs, hide bottom nav, larger padding */
 @media(min-width:768px){
   .header-inner{padding:20px 32px 0}
-  .header-title{font-size:34px}
+  .header-title{font-size:28px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .header-logo{width:52px;height:52px}
+  .header-right{display:flex}  /* show lang toggle in header on desktop */
   .lang-toggle button{font-size:13px;padding:4px 14px}
   .controls-row1{padding:10px 32px}
   .controls-row2{padding:6px 32px 10px;overflow-x:visible}
@@ -190,7 +191,15 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 @media(max-width:767px){
   .view-tabs{display:none}
   .bottom-nav{display:flex}
-  /* week shows fewer cols — handled in JS */
+  .header-right{display:none}  /* lang toggle moves to bottom bar */
+}
+
+/* Bottom lang toggle — only on mobile inside bottom nav */
+.bottom-lang{display:none}
+@media(max-width:767px){
+  .bottom-lang{display:flex;gap:2px;background:rgba(0,0,0,.06);border-radius:20px;padding:3px;border:1.5px solid var(--border);align-self:center;margin:0 8px}
+  .bottom-lang button{border:none;background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:5px 11px;border-radius:16px;cursor:pointer;transition:all .15s;touch-action:manipulation}
+  .bottom-lang button.active{background:var(--red);color:#fff}
 }
 </style>
 </head>
@@ -200,16 +209,8 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
   <div class="header-inner">
     <div class="header-top">
       <div class="header-brand">
-        <div class="header-logo">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-            <circle cx="16" cy="16" r="14" fill="#FAD94A"/>
-            <path d="M10 22 C10 14 22 14 22 22" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <circle cx="16" cy="11" r="3" fill="white"/>
-            <path d="M7 19 C7 19 10 16 16 16 C22 16 25 19 25 19" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
         <div class="header-texts">
-          <div class="header-title">Sommargågatan</div>
+          <div class="header-title" id="headerTitle">Schema: Sommargågatan i Solna</div>
           <div class="header-sub" id="headerSub">Centralvägen, Solna · 2026</div>
         </div>
       </div>
@@ -248,14 +249,18 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bottom-nav-btn" id="bnMonth" onclick="setView('month')">
-      <span class="bnicon">📅</span><span id="bnMonthLabel">Månad</span>
+      <span class="bnicon"></span><span id="bnMonthLabel">Månad</span>
     </button>
     <button class="bottom-nav-btn" id="bnWeek" onclick="setView('week')">
-      <span class="bnicon">🗓</span><span id="bnWeekLabel">Vecka</span>
+      <span class="bnicon"></span><span id="bnWeekLabel">Vecka</span>
     </button>
     <button class="bottom-nav-btn active" id="bnDay" onclick="setView('day')">
-      <span class="bnicon">📋</span><span id="bnDayLabel">Dag</span>
+      <span class="bnicon"></span><span id="bnDayLabel">Dag</span>
     </button>
+    <div class="bottom-lang">
+      <button id="btnSvBot" class="active" onclick="setLang('sv')">SV</button>
+      <button id="btnEnBot" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -361,6 +366,9 @@ function classifyEvents(evs){
 // ── CONTROLS ──
 function updateControls(){
   const u=UI[lang];
+  document.getElementById('headerTitle').textContent = lang==='sv'
+    ? 'Schema: Sommargågatan i Solna'
+    : 'Schedule: Sommargågatan in Solna';
   document.getElementById('headerSub').textContent=u.sub;
   document.getElementById('todayBtn').textContent=u.today;
   document.getElementById('tabMonth').textContent=u.month;
@@ -371,6 +379,10 @@ function updateControls(){
   document.getElementById('bnDayLabel').textContent=u.day;
   document.getElementById('btnSv').className=lang==='sv'?'active':'';
   document.getElementById('btnEn').className=lang==='en'?'active':'';
+  const bsv=document.getElementById('btnSvBot');
+  const ben=document.getElementById('btnEnBot');
+  if(bsv)bsv.className=lang==='sv'?'active':'';
+  if(ben)ben.className=lang==='en'?'active':'';
 
   // Period label
   const mo=lang==='sv'?MONTHS_SV:MONTHS_EN;
