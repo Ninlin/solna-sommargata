@@ -201,6 +201,37 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
   .bottom-lang button{border:none;background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:5px 11px;border-radius:16px;cursor:pointer;transition:all .15s;touch-action:manipulation}
   .bottom-lang button.active{background:var(--red);color:#fff}
 }
+
+/* ═══ VIEW TOGGLE (calendar vs list) ═══ */
+.view-toggle{display:flex;gap:2px;background:rgba(255,255,255,.45);border-radius:20px;padding:3px;border:1.5px solid rgba(214,53,39,.2);flex-shrink:0}
+.view-toggle-btn{border:none;background:transparent;color:#7A5A12;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:6px 8px;border-radius:14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.view-toggle-btn.active{background:var(--red);color:#fff}
+.view-toggle-btn svg{width:15px;height:15px;flex-shrink:0}
+
+/* ═══ LIST VIEW ═══ */
+.list-view{display:flex;flex-direction:column;gap:0}
+.list-month-heading{font-size:18px;font-weight:800;color:var(--text);padding:20px 0 10px;letter-spacing:-.2px}
+.list-date-group{margin-bottom:4px;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--border)}
+.list-date-header{background:var(--yellow-light);padding:9px 14px;display:flex;align-items:baseline;gap:8px;border-bottom:1px solid var(--border)}
+.list-date-day{font-size:18px;font-weight:800;color:var(--text);line-height:1}
+.list-date-weekday{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.list-date-today{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:4px;letter-spacing:.04em;text-transform:uppercase}
+.list-events{display:flex;flex-direction:column}
+.list-event{display:flex;align-items:stretch;gap:0;cursor:pointer;background:var(--surface);border-top:1px solid #F0EDD8;transition:background .1s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.list-event:first-child{border-top:none}
+.list-event:active{background:var(--yellow-light)}
+.list-event-accent{width:4px;flex-shrink:0}
+.list-event-body{flex:1;padding:10px 14px;min-width:0}
+.list-event-time{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:2px}
+.list-event-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
+.list-event-meta{font-size:11px;color:var(--muted);margin-top:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.list-event-cat{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;color:#fff;white-space:nowrap}
+.list-event-loc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list-event-chevron{font-size:14px;color:var(--border);padding:0 12px;display:flex;align-items:center;flex-shrink:0}
+.list-empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px;background:var(--surface);border-radius:var(--radius);border:1.5px solid var(--border)}
+.list-banner-strip{background:var(--yellow-light);border-bottom:1px solid var(--border);padding:6px 14px;display:flex;gap:6px;flex-wrap:wrap}
+.list-banner-item{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff;cursor:pointer}
+.list-midsommar{background:#FFF0F0;color:var(--red);font-size:12px;font-weight:600;padding:10px 14px;font-style:italic}
 </style>
 </head>
 <body>
@@ -221,10 +252,20 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
         </div>
       </div>
     </div>
-    <div class="view-tabs">
-      <button class="view-tab" onclick="setView('month')" id="tabMonth">Månad</button>
-      <button class="view-tab active" onclick="setView('week')" id="tabWeek">Vecka</button>
-      <button class="view-tab" onclick="setView('day')" id="tabDay">Dag</button>
+    <div class="view-tabs" style="justify-content:space-between;align-items:flex-end">
+      <div style="display:flex;gap:6px">
+        <button class="view-tab" onclick="setView('month')" id="tabMonth">Månad</button>
+        <button class="view-tab active" onclick="setView('week')" id="tabWeek">Vecka</button>
+        <button class="view-tab" onclick="setView('day')" id="tabDay">Dag</button>
+      </div>
+      <div class="view-toggle" style="margin-bottom:6px">
+        <button class="view-toggle-btn active" id="toggleCal" onclick="setDisplayMode('calendar')" title="Kalender">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M1 7h14"/><path d="M5 1v4M11 1v4" stroke-linecap="round"/></svg>
+        </button>
+        <button class="view-toggle-btn" id="toggleList" onclick="setDisplayMode('list')" title="Lista">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 4h8M6 8h8M6 12h8M2 4h.5M2 8h.5M2 12h.5"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -236,6 +277,14 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
       <div class="period-label" id="periodLabel"></div>
       <button class="nav-btn" onclick="navigate(1)">&#8250;</button>
       <div style="flex:1"></div>
+      <div class="view-toggle" id="mobileViewToggle">
+        <button class="view-toggle-btn active" id="mToggleCal" onclick="setDisplayMode('calendar')">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M1 7h14"/><path d="M5 1v4M11 1v4" stroke-linecap="round"/></svg>
+        </button>
+        <button class="view-toggle-btn" id="mToggleList" onclick="setDisplayMode('list')">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 4h8M6 8h8M6 12h8M2 4h.5M2 8h.5M2 12h.5"/></svg>
+        </button>
+      </div>
       <button class="today-btn" onclick="goToday()" id="todayBtn">Idag</button>
     </div>
     <div class="controls-row2">
@@ -257,6 +306,9 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
     </button>
     <button class="bottom-nav-btn active" id="bnDay" onclick="setView('day')">
       <span class="bnicon"></span><span id="bnDayLabel">Dag</span>
+    </button>
+    <button class="bottom-nav-btn" id="bnList" onclick="setDisplayMode('list')">
+      <span class="bnicon"></span><span id="bnListLabel">Lista</span>
     </button>
     <div class="bottom-lang">
       <button id="btnSvBot" class="active" onclick="setLang('sv')">SV</button>
@@ -296,7 +348,7 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 
 <script>
 // ── STATE ──
-let lang='sv', view='week', data=null;
+let lang='sv', view='week', displayMode='calendar', data=null;
 let cursor=new Date(2026,4,30);
 let selectedCategories=new Set();
 
@@ -310,16 +362,16 @@ const MONTHS_SHORT_SV=['jan','feb','mar','apr','maj','jun','jul','aug','sep','ok
 const MONTHS_SHORT_EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 const UI={
-  sv:{month:'Månad',week:'Vecka',day:'Dag',today:'Idag',organizer:'Arrangör',
-      dropin:'Drop-in',reg:'Anmälan krävs',noEvents:'Inga aktiviteter denna dag.',
+  sv:{month:'Månad',week:'Vecka',day:'Dag',list:'Lista',calendar:'Kalender',today:'Idag',organizer:'Arrangör',
+      dropin:'Drop-in',reg:'Anmälan krävs',noEvents:'Inga aktiviteter denna dag.',noEventsMonth:'Inga aktiviteter denna månad.',
       more:n=>`+${n} till`,sub:'Centralvägen, Solna · 2026',
       allDay:'Öppet hela dagen',website:'Hemsida',date:'Datum',time:'Tid',loc:'Plats',age:'Ålder',
-      activities:'aktiviteter'},
-  en:{month:'Month',week:'Week',day:'Day',today:'Today',organizer:'Organizer',
-      dropin:'Drop-in',reg:'Registration required',noEvents:'No activities today.',
+      activities:'aktiviteter',idag:'Idag'},
+  en:{month:'Month',week:'Week',day:'Day',list:'List',calendar:'Calendar',today:'Today',organizer:'Organizer',
+      dropin:'Drop-in',reg:'Registration required',noEvents:'No activities today.',noEventsMonth:'No activities this month.',
       more:n=>`+${n} more`,sub:'Centralvägen, Solna · 2026',
       allDay:'Open all day',website:'Website',date:'Date',time:'Time',loc:'Location',age:'Age',
-      activities:'activities'}
+      activities:'activities',idag:'Today'}
 };
 
 const CAT_COLOR={
@@ -378,6 +430,27 @@ function updateControls(){
   document.getElementById('bnMonthLabel').textContent=u.month;
   document.getElementById('bnWeekLabel').textContent=u.week;
   document.getElementById('bnDayLabel').textContent=u.day;
+  document.getElementById('bnListLabel').textContent=u.list;
+  // Sync all toggle button active states
+  const isList=displayMode==='list';
+  ['toggleCal','mToggleCal'].forEach(id=>{const el=document.getElementById(id);if(el)el.className='view-toggle-btn'+(isList?'':' active');});
+  ['toggleList','mToggleList'].forEach(id=>{const el=document.getElementById(id);if(el)el.className='view-toggle-btn'+(isList?' active':'');});
+
+  // Bottom nav: calendar views hidden in list mode
+  ['bnMonth','bnWeek','bnDay'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.style.display=isList?'none':'flex';
+  });
+  const bnList=document.getElementById('bnList');
+  if(bnList){bnList.style.display=isList?'flex':'none';bnList.className='bottom-nav-btn'+(isList?' active':'');}
+
+  // Header tabs visibility
+  const tabArea=document.querySelector('.view-tabs>div:first-child');
+  if(tabArea)tabArea.style.display=isList?'none':'flex';
+  ['month','week','day'].forEach(n=>{
+    const el=document.getElementById('tab'+n.charAt(0).toUpperCase()+n.slice(1));
+    if(el)el.className='view-tab'+((!isList&&view===n)?' active':'');
+  });
   document.getElementById('btnSv').className=lang==='sv'?'active':'';
   document.getElementById('btnEn').className=lang==='en'?'active':'';
   const bsv=document.getElementById('btnSvBot');
@@ -388,7 +461,7 @@ function updateControls(){
   // Period label
   const mo=lang==='sv'?MONTHS_SV:MONTHS_EN;
   const mos=lang==='sv'?MONTHS_SHORT_SV:MONTHS_SHORT_EN;
-  if(view==='month'){
+  if(view==='month'||displayMode==='list'){
     document.getElementById('periodLabel').textContent=`${mo[cursor.getMonth()]} ${cursor.getFullYear()}`;
   }else if(view==='week'){
     const mon=getMonday(cursor);
@@ -515,15 +588,27 @@ function buildTimelineBody(dateS){
   const PAD=TL_PAD;
   const GAP=2;
 
-  // ── Detect organizers that appear 2+ times on this day → pin to right column ──
-  const orgCounts={};
+  // ── Pin specific organizers to a dedicated right column ──
+  // An organizer gets pinned when it has 2+ non-overlapping slots on the same day
+  // (like Solis & Solrosa). We check explicitly: same organizer_id, 2+ events, none overlap each other.
+  const orgGroups={};
   timed.filter(e=>e.time_start).forEach(e=>{
-    orgCounts[e.organizer_id]=(orgCounts[e.organizer_id]||0)+1;
+    if(!orgGroups[e.organizer_id]) orgGroups[e.organizer_id]=[];
+    orgGroups[e.organizer_id].push({sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60});
   });
-  const pinnedOrgs=new Set(Object.keys(orgCounts).filter(k=>orgCounts[k]>=2));
+  function selfOverlaps(arr){
+    for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)
+      if(arr[i].sm<arr[j].em&&arr[j].sm<arr[i].em)return true;
+    return false;
+  }
+  // Pin: 2+ events, none overlap each other (i.e. they are repeated slots, not conflicts)
+  const pinnedOrgs=new Set(
+    Object.keys(orgGroups).filter(k=>orgGroups[k].length>=2&&!selfOverlaps(orgGroups[k]))
+  );
 
   const pinnedItems = timed.filter(e=>e.time_start && pinnedOrgs.has(e.organizer_id))
-    .map(e=>({e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60}));
+    .map(e=>({e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60}))
+    .sort((a,b)=>a.sm-b.sm);
   const freeItems   = timed.filter(e=>e.time_start && !pinnedOrgs.has(e.organizer_id))
     .map(e=>({e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60,slot:0,total:1}))
     .sort((a,b)=>a.sm-b.sm);
@@ -542,9 +627,9 @@ function buildTimelineBody(dateS){
     g.forEach(item=>item.total=slots.length);
   });
 
-  // Column widths: if there are pinned events, reserve right 30% for them
+  // Column widths: if there are pinned events, reserve right 28% for them
   const hasPinned=pinnedItems.length>0;
-  const PIN_W=hasPinned?30:0;  // % of total width for pinned column
+  const PIN_W=hasPinned?28:0;
   const FREE_W=100-PIN_W;
 
   let html='';
@@ -753,10 +838,106 @@ function closeModal(e){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-// ── NAV ──
+// ── LIST VIEW ──
+function renderList(){
+  const el=document.getElementById('calendarMain');
+  const y=cursor.getFullYear(),m=cursor.getMonth();
+  const firstDay=new Date(y,m,1);
+  const lastDay=new Date(y,m+1,0);
+  const dn=lang==='sv'?DAYS_SV:DAYS_EN;
+  const mo=lang==='sv'?MONTHS_SV:MONTHS_EN;
+  const u=UI[lang];
+
+  // Collect all days in month that have events
+  let hasAny=false;
+  let html=`<div class="list-view">`;
+
+  for(let d=1;d<=lastDay.getDate();d++){
+    const dt=new Date(y,m,d);
+    const dateS=ds(dt);
+    const evs=eventsForDate(dateS);
+    const{banners,timed}=classifyEvents(evs);
+    if(evs.length===0)continue;
+    hasAny=true;
+
+    const wd=(dt.getDay()+6)%7;
+    const today=isToday(dt);
+    const isMid=dateS==='2026-06-19';
+
+    html+=`<div class="list-date-group">`;
+    html+=`<div class="list-date-header">
+      <span class="list-date-day">${d}</span>
+      <span class="list-date-weekday">${dn[wd]}</span>
+      ${today?`<span class="list-date-today">${u.idag}</span>`:''}
+    </div>`;
+
+    if(isMid){
+      html+=`<div class="list-midsommar">🌸 Midsommarafton – inga aktiviteter</div>`;
+    } else {
+      // All-day banners as small pills
+      if(banners.length){
+        html+=`<div class="list-banner-strip">`;
+        banners.forEach(e=>{
+          const col=catColor(e.category);
+          const ti=lang==='sv'?e.title_sv:e.title_en;
+          const hrs=e.time_start?` ${fmt(e.time_start)}–${fmt(e.time_end)}`:'';
+          html+=`<span class="list-banner-item" style="background:${col}" onclick="showEvent('${e.id}')">${ti}${hrs}</span>`;
+        });
+        html+=`</div>`;
+      }
+
+      // Timed events sorted by start
+      const sorted=[...timed].sort((a,b)=>{
+        if(!a.time_start&&!b.time_start)return 0;
+        if(!a.time_start)return 1;
+        if(!b.time_start)return -1;
+        return t2m(a.time_start)-t2m(b.time_start);
+      });
+
+      html+=`<div class="list-events">`;
+      sorted.forEach(e=>{
+        const col=catColor(e.category);
+        const ti=lang==='sv'?e.title_sv:e.title_en;
+        const timeStr=e.time_start
+          ?`${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`
+          :'';
+        const catLbl=catLabel(e.category);
+        html+=`<div class="list-event" onclick="showEvent('${e.id}')">
+          <div class="list-event-accent" style="background:${col}"></div>
+          <div class="list-event-body">
+            ${timeStr?`<div class="list-event-time">${timeStr}</div>`:''}
+            <div class="list-event-title">${ti}</div>
+            <div class="list-event-meta">
+              <span class="list-event-cat" style="background:${col}">${catLbl}</span>
+              <span class="list-event-loc">📍 ${e.location}</span>
+            </div>
+          </div>
+          <div class="list-event-chevron">›</div>
+        </div>`;
+      });
+      html+=`</div>`;
+    }
+    html+=`</div>`;
+  }
+
+  if(!hasAny){
+    html+=`<div class="list-empty">🌞 ${u.noEventsMonth}</div>`;
+  }
+
+  html+=`</div>`;
+  el.innerHTML=html;
+}
+
+function setDisplayMode(mode){
+  displayMode=mode;
+  // When switching to list, snap cursor to month start
+  if(mode==='list') cursor=new Date(cursor.getFullYear(),cursor.getMonth(),1);
+  render();
+}
 function navigate(dir){
-  if(view==='month') cursor=new Date(cursor.getFullYear(),cursor.getMonth()+dir,1);
-  else if(view==='week') cursor.setDate(cursor.getDate()+dir*7);else cursor.setDate(cursor.getDate()+dir);
+  if(displayMode==='list'||view==='month') cursor=new Date(cursor.getFullYear(),cursor.getMonth()+dir,1);
+  else if(view==='week') cursor.setDate(cursor.getDate()+dir*7);
+  else cursor.setDate(cursor.getDate()+dir);
   render();
 }
 function goToday(){
@@ -768,9 +949,14 @@ function goToday(){
   else cursor=new Date(today);
   render();
 }
-function goDay(dateS){cursor=pd(dateS);setView('day');}
+function goDay(dateS){
+  displayMode='calendar';
+  cursor=pd(dateS);
+  setView('day');
+}
 function setView(v){
   view=v;
+  displayMode='calendar';
   render();
 }
 function setLang(l){lang=l;render();}
@@ -782,8 +968,9 @@ function toggleCat(id){
 
 function render(){
   updateControls();
-  if(view==='month')renderMonth();
-  else if(view==='week')renderWeek();
+  if(displayMode==='list') renderList();
+  else if(view==='month') renderMonth();
+  else if(view==='week') renderWeek();
   else renderDay();
 }
 
