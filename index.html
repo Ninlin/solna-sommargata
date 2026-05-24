@@ -25,8 +25,8 @@ header{background:var(--yellow);border-bottom:3px solid var(--red)}
 .header-brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
 .header-logo{width:40px;height:40px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .header-texts{min-width:0;flex:1}
-.header-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:22px;line-height:1.15;color:var(--red);letter-spacing:-.3px}
-.header-sub{font-size:12px;color:#7A5A12;margin-top:2px;font-weight:500}
+.header-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:26px;line-height:1.15;color:var(--red);letter-spacing:-.3px}
+.header-sub{font-size:12px;color:#7A5A12;margin-top:3px;font-weight:500;padding-bottom:16px}
 .header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.5);border-radius:20px;padding:3px;border:1.5px solid rgba(214,53,39,.25)}
 .lang-toggle button{border:none;background:transparent;color:#7A5A12;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:4px 10px;border-radius:16px;cursor:pointer;transition:all .15s;min-height:32px}
@@ -43,7 +43,7 @@ header{background:var(--yellow);border-bottom:3px solid var(--red)}
 .controls-row1{display:flex;align-items:center;gap:8px;padding:8px 16px}
 .nav-btn{border:2px solid var(--border);background:var(--surface);color:var(--text);font-size:18px;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;flex-shrink:0;font-family:inherit;touch-action:manipulation}
 .nav-btn:active{background:var(--yellow-light);border-color:var(--yellow)}
-.period-label{font-size:14px;font-weight:600;flex:1;text-align:center;color:var(--text);min-width:0}
+.period-label{font-size:14px;font-weight:700;flex:0 1 auto;text-align:center;color:var(--text);padding:0 8px}
 .today-btn{border:2px solid var(--red);background:var(--surface);color:var(--red);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .12s;flex-shrink:0;white-space:nowrap;touch-action:manipulation}
 .today-btn:active{background:var(--red);color:#fff}
 
@@ -184,7 +184,7 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
   .day-num{font-size:12px}
   .event-dot{width:20px;height:20px;font-size:9px}
   .banner-chip{font-size:10px}
-  .period-label{font-size:16px}
+  .period-label{font-size:15px}
 }
 
 /* Mobile (< 768px): hide header tabs, show bottom nav */
@@ -235,6 +235,7 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
       <button class="nav-btn" onclick="navigate(-1)">&#8249;</button>
       <div class="period-label" id="periodLabel"></div>
       <button class="nav-btn" onclick="navigate(1)">&#8250;</button>
+      <div style="flex:1"></div>
       <button class="today-btn" onclick="goToday()" id="todayBtn">Idag</button>
     </div>
     <div class="controls-row2">
@@ -512,14 +513,25 @@ function buildTimelineBody(dateS){
   const{timed}=classifyEvents(evs);
   const PPM=pxPerMin();
   const PAD=TL_PAD;
+  const GAP=2;
 
-  const placed=timed.filter(e=>e.time_start).map(e=>({
-    e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60,slot:0,total:1
-  })).sort((a,b)=>a.sm-b.sm);
+  // ── Detect organizers that appear 2+ times on this day → pin to right column ──
+  const orgCounts={};
+  timed.filter(e=>e.time_start).forEach(e=>{
+    orgCounts[e.organizer_id]=(orgCounts[e.organizer_id]||0)+1;
+  });
+  const pinnedOrgs=new Set(Object.keys(orgCounts).filter(k=>orgCounts[k]>=2));
 
+  const pinnedItems = timed.filter(e=>e.time_start && pinnedOrgs.has(e.organizer_id))
+    .map(e=>({e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60}));
+  const freeItems   = timed.filter(e=>e.time_start && !pinnedOrgs.has(e.organizer_id))
+    .map(e=>({e,sm:t2m(e.time_start),em:e.time_end?t2m(e.time_end):t2m(e.time_start)+60,slot:0,total:1}))
+    .sort((a,b)=>a.sm-b.sm);
+
+  // Standard overlap layout for free events
   function overlaps(a,b){return a.sm<b.em&&b.sm<a.em;}
   const groups=[];
-  placed.forEach(item=>{
+  freeItems.forEach(item=>{
     let merged=false;
     for(const g of groups){if(g.some(gi=>overlaps(gi,item))){g.push(item);merged=true;break;}}
     if(!merged)groups.push([item]);
@@ -529,6 +541,11 @@ function buildTimelineBody(dateS){
     g.forEach(item=>{let s=0;while(slots[s]&&overlaps(slots[s],item))s++;slots[s]=item;item.slot=s;});
     g.forEach(item=>item.total=slots.length);
   });
+
+  // Column widths: if there are pinned events, reserve right 30% for them
+  const hasPinned=pinnedItems.length>0;
+  const PIN_W=hasPinned?30:0;  // % of total width for pinned column
+  const FREE_W=100-PIN_W;
 
   let html='';
   // Hour lines
@@ -545,18 +562,34 @@ function buildTimelineBody(dateS){
       html+=`<div class="tl-now-line" style="top:${top}px"><div class="tl-now-dot"></div></div>`;
     }
   }
-  // Events
-  const GAP=2;
-  placed.forEach(({e,sm,em,slot,total})=>{
+
+  // Free events — occupy left FREE_W%
+  freeItems.forEach(({e,sm,em,slot,total})=>{
     const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
     const height=Math.max((em-sm)*PPM,20);
     const col=catColor(e.category);
     const ti=lang==='sv'?e.title_sv:e.title_en;
-    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${(slot/total)*100}% + ${GAP}px);width:calc(${(1/total)*100}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
+    // within FREE_W, divide equally among slots
+    const slotW=FREE_W/total;
+    const left=slot*slotW;
+    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${left}% + ${GAP}px);width:calc(${slotW}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
       <div class="et">${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}</div>
       <div>${ti}</div>
     </div>`;
   });
+
+  // Pinned events — occupy right PIN_W%, stacked (no side-by-side needed, they don't overlap)
+  pinnedItems.forEach(({e,sm,em})=>{
+    const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
+    const height=Math.max((em-sm)*PPM,20);
+    const col=catColor(e.category);
+    const ti=lang==='sv'?e.title_sv:e.title_en;
+    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${FREE_W}% + ${GAP}px);width:calc(${PIN_W}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
+      <div class="et">${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}</div>
+      <div>${ti}</div>
+    </div>`;
+  });
+
   // Timeless
   timed.filter(e=>!e.time_start).forEach((e,i)=>{
     const col=catColor(e.category);
