@@ -52,7 +52,6 @@ header{background:var(--yellow);border-bottom:3px solid var(--red)}
 .controls-row2::-webkit-scrollbar{display:none}
 .filters{display:flex;gap:6px;align-items:center;width:max-content}
 .filter-chip{border:2px solid;background:transparent;font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;cursor:pointer;transition:all .12s;white-space:nowrap;touch-action:manipulation;min-height:30px}
-.filter-chip.off{border-color:var(--border)!important;color:#BBAF95!important;background:transparent!important}
 
 /* ═══ MAIN ═══ */
 main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
@@ -163,8 +162,8 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
   main{padding:20px 32px 48px}
   .tl-gutter{width:52px}
   .tl-hour-label{font-size:10px;right:6px}
-  .tl-event{font-size:13px;padding:4px 8px}
-  .tl-event .et{font-size:11px}
+  .tl-event{padding:4px 8px}
+  .tl-event .et{}
   .week-day-col-hdr{padding:10px 4px 8px}
   .week-day-name{font-size:11px}
   .week-day-num{font-size:22px}
@@ -498,9 +497,18 @@ function updateControls(){
   data.categories.forEach(cat=>{
     const on=selectedCategories.has(cat.id);
     const btn=document.createElement('button');
-    btn.className='filter-chip'+(on?'':' off');
+    btn.className='filter-chip';
     btn.textContent=lang==='sv'?cat.label_sv:cat.label_en;
-    if(on){btn.style.borderColor=cat.color;btn.style.color='#fff';btn.style.backgroundColor=cat.color;}
+    // Always show the category color as border (legend function)
+    btn.style.borderColor=cat.color;
+    if(on){
+      btn.style.color='#fff';
+      btn.style.backgroundColor=cat.color;
+    } else {
+      btn.style.color=cat.color;
+      btn.style.backgroundColor='transparent';
+      btn.style.opacity='0.65';
+    }
     btn.onclick=()=>toggleCat(cat.id);
     bar.appendChild(btn);
   });
@@ -580,12 +588,16 @@ function weekDays(){
   }
 }
 
-function buildTimelineBody(dateS){
+function buildTimelineBody(dateS, weekMode=false){
   const evs=eventsForDate(dateS);
   const{timed}=classifyEvents(evs);
   const PPM=pxPerMin();
   const PAD=TL_PAD;
   const GAP=2;
+  const WEEK_FONT='10px';
+  const DAY_FONT='13px';
+  const WEEK_ET='9px';
+  const DAY_ET='11px';
 
   // ── Pin specific organizers to a dedicated right column ──
   // An organizer gets pinned when it has 2+ non-overlapping slots on the same day
@@ -652,16 +664,19 @@ function buildTimelineBody(dateS){
     const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
     const height=Math.max((em-sm)*PPM,20);
     const col=catColor(e.category);
-    const ti=total>1
-      ? (e.title_short || (lang==='sv'?e.title_sv:e.title_en))
+    const useShort=weekMode&&total>1;
+    const ti=useShort
+      ? (e.title_short||(lang==='sv'?e.title_sv:e.title_en))
       : (lang==='sv'?e.title_sv:e.title_en);
-    const timeLabel=total>1
-      ? fmt(e.time_start)   // start time only when cramped
+    const timeLabel=useShort
+      ? fmt(e.time_start)
       : `${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`;
+    const fSize=weekMode?WEEK_FONT:DAY_FONT;
+    const etSize=weekMode?WEEK_ET:DAY_ET;
     const slotW=FREE_W/total;
     const left=slot*slotW;
-    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${left}% + ${GAP}px);width:calc(${slotW}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
-      <div class="et">${timeLabel}</div>
+    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};font-size:${fSize};left:calc(${left}% + ${GAP}px);width:calc(${slotW}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
+      <div class="et" style="font-size:${etSize}">${timeLabel}</div>
       <div>${ti}</div>
     </div>`;
   });
@@ -671,9 +686,16 @@ function buildTimelineBody(dateS){
     const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
     const height=Math.max((em-sm)*PPM,20);
     const col=catColor(e.category);
-    const ti=e.title_short||(lang==='sv'?e.title_sv:e.title_en);
-    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${FREE_W}% + ${GAP}px);width:calc(${PIN_W}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
-      <div class="et">${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}</div>
+    const ti=weekMode
+      ? (e.title_short||(lang==='sv'?e.title_sv:e.title_en))
+      : (lang==='sv'?e.title_sv:e.title_en);
+    const timeLabel=weekMode
+      ? fmt(e.time_start)
+      : `${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`;
+    const fSize=weekMode?WEEK_FONT:DAY_FONT;
+    const etSize=weekMode?WEEK_ET:DAY_ET;
+    html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};font-size:${fSize};left:calc(${FREE_W}% + ${GAP}px);width:calc(${PIN_W}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
+      <div class="et" style="font-size:${etSize}">${timeLabel}</div>
       <div>${ti}</div>
     </div>`;
   });
@@ -720,7 +742,7 @@ function renderWeek(){
   html+=`<div class="week-body-row">`;
   html+=`<div class="tl-gutter" style="height:${H}px;width:${GW}px">${buildGutterHtml()}</div>`;
   days.forEach(d=>{
-    const body=buildTimelineBody(ds(d));
+    const body=buildTimelineBody(ds(d), true);
     html+=`<div class="week-col${isToday(d)?' today-col':''}" style="height:${H}px${COL_MIN?`;min-width:${COL_MIN}px`:''}">${body}</div>`;
   });
   html+=`</div></div></div></div>`;
@@ -741,7 +763,7 @@ function renderDay(){
   const H=totalPx();
   const GW=gutterW();
   const PPM=pxPerMin();
-  const body=buildTimelineBody(dateS);
+  const body=buildTimelineBody(dateS, false);
 
   // Gutter html
   const gutterHtml=buildGutterHtml();
