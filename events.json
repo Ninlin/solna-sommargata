@@ -301,7 +301,8 @@
       "organizer_id": "returpunkten",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Returpunkten – Broderistation"
     },
     {
       "id": "e002",
@@ -319,7 +320,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Lillys – Restaurang"
     },
     {
       "id": "e003",
@@ -337,7 +339,8 @@
       "organizer_id": "skog",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Skog – Glassbar"
     },
     {
       "id": "e004",
@@ -355,7 +358,8 @@
       "organizer_id": "solna_stad",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Invigning"
     },
     {
       "id": "e005",
@@ -373,7 +377,8 @@
       "organizer_id": "house_of_creative",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "House of Creative"
     },
     {
       "id": "e006",
@@ -391,7 +396,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Schackskola"
     },
     {
       "id": "e007",
@@ -409,7 +415,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Bildverkstad"
     },
     {
       "id": "e008",
@@ -427,7 +434,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Bildverkstad"
     },
     {
       "id": "e009",
@@ -445,7 +453,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e010",
@@ -463,7 +472,8 @@
       "organizer_id": "forebyggande",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Startpunkten"
     },
     {
       "id": "e011",
@@ -481,7 +491,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e012",
@@ -499,7 +510,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e013",
@@ -517,7 +529,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Rundpingisschack"
     },
     {
       "id": "e014",
@@ -535,7 +548,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e015",
@@ -553,7 +567,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "6–99 år, seniorer 60+"
+      "age_info": "6–99 år, seniorer 60+",
+      "title_short": "Judo"
     },
     {
       "id": "e016",
@@ -571,7 +586,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e017",
@@ -589,7 +605,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e018",
@@ -607,7 +624,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e019",
@@ -625,7 +643,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e020",
@@ -643,7 +662,8 @@
       "organizer_id": "returpunkten",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 12 år"
+      "age_info": "Från 12 år",
+      "title_short": "PiffUp"
     },
     {
       "id": "e021",
@@ -661,7 +681,8 @@
       "organizer_id": "schack",
       "registration_required": true,
       "drop_in": false,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Lagschack"
     },
     {
       "id": "e022",
@@ -679,7 +700,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e023",
@@ -697,7 +719,8 @@
       "organizer_id": "forebyggande",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Startpunkten"
     },
     {
       "id": "e024",
@@ -715,7 +738,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e025",
@@ -733,7 +757,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e026",
@@ -751,7 +776,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e027",
@@ -769,7 +795,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e028",
@@ -787,7 +814,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e029",
@@ -805,7 +833,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e030",
@@ -823,7 +852,8 @@
       "organizer_id": "returpunkten",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Re Make"
     },
     {
       "id": "e031",
@@ -841,7 +871,8 @@
       "organizer_id": "lindex",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Lindex"
     },
     {
       "id": "e032",
@@ -859,7 +890,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e033",
@@ -877,7 +909,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e034",
@@ -895,7 +928,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Schackskola"
     },
     {
       "id": "e035",
@@ -913,7 +947,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e036",
@@ -931,7 +966,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e037",
@@ -949,7 +985,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e038",
@@ -967,7 +1004,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e039",
@@ -985,7 +1023,8 @@
       "organizer_id": "stora_bla",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Mads & Marianne"
     },
     {
       "id": "e040",
@@ -1003,7 +1042,8 @@
       "organizer_id": "gata_trafik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Tekniska förv."
     },
     {
       "id": "e041",
@@ -1021,7 +1061,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e042",
@@ -1039,7 +1080,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e043",
@@ -1057,7 +1099,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "BungyPump Schack"
     },
     {
       "id": "e044",
@@ -1075,7 +1118,8 @@
       "organizer_id": "gata_trafik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Tekniska förv."
     },
     {
       "id": "e045",
@@ -1093,7 +1137,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e046",
@@ -1111,7 +1156,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e047",
@@ -1129,7 +1175,8 @@
       "organizer_id": "solna_stad",
       "registration_required": false,
       "drop_in": false,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Midsommarafton – Inga"
     },
     {
       "id": "e048",
@@ -1147,7 +1194,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e049",
@@ -1165,7 +1213,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e050",
@@ -1183,7 +1232,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e051",
@@ -1201,7 +1251,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e052",
@@ -1219,7 +1270,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e053",
@@ -1237,7 +1289,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sommarbandet"
     },
     {
       "id": "e054",
@@ -1255,7 +1308,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e055",
@@ -1273,7 +1327,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e056",
@@ -1291,7 +1346,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "SFI-schack"
     },
     {
       "id": "e057",
@@ -1309,7 +1365,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e058",
@@ -1327,7 +1384,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e059",
@@ -1345,7 +1403,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e060",
@@ -1363,7 +1422,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e061",
@@ -1381,7 +1441,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sommarbandet"
     },
     {
       "id": "e062",
@@ -1399,7 +1460,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e063",
@@ -1417,7 +1479,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e064",
@@ -1435,7 +1498,8 @@
       "organizer_id": "house_of_creative",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "House of Creative"
     },
     {
       "id": "e065",
@@ -1453,7 +1517,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e066",
@@ -1471,7 +1536,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e067",
@@ -1489,7 +1555,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e068",
@@ -1507,7 +1574,8 @@
       "organizer_id": "schack",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Schackturnering"
     },
     {
       "id": "e069",
@@ -1525,7 +1593,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e070",
@@ -1543,7 +1612,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e071",
@@ -1561,7 +1631,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e072",
@@ -1579,7 +1650,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sommarbandet"
     },
     {
       "id": "e073",
@@ -1597,7 +1669,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e074",
@@ -1615,7 +1688,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e075",
@@ -1633,7 +1707,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e076",
@@ -1651,7 +1726,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e077",
@@ -1669,7 +1745,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e078",
@@ -1687,7 +1764,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e079",
@@ -1705,7 +1783,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e080",
@@ -1723,7 +1802,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sommarbandet"
     },
     {
       "id": "e081",
@@ -1741,7 +1821,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e082",
@@ -1759,7 +1840,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e083",
@@ -1777,7 +1859,8 @@
       "organizer_id": "returpunkten",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 12 år"
+      "age_info": "Från 12 år",
+      "title_short": "PiffUp"
     },
     {
       "id": "e084",
@@ -1795,7 +1878,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e085",
@@ -1813,7 +1897,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e086",
@@ -1831,7 +1916,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e087",
@@ -1849,7 +1935,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e088",
@@ -1867,7 +1954,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e089",
@@ -1885,7 +1973,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e090",
@@ -1903,7 +1992,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e091",
@@ -1921,7 +2011,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e092",
@@ -1939,7 +2030,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e093",
@@ -1957,7 +2049,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e094",
@@ -1975,7 +2068,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e095",
@@ -1993,7 +2087,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e096",
@@ -2011,7 +2106,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e097",
@@ -2029,7 +2125,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e098",
@@ -2047,7 +2144,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e099",
@@ -2065,7 +2163,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e100",
@@ -2083,7 +2182,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e101",
@@ -2101,7 +2201,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e102",
@@ -2119,7 +2220,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e103",
@@ -2137,7 +2239,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e104",
@@ -2155,7 +2258,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e105",
@@ -2173,7 +2277,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e106",
@@ -2191,7 +2296,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e107",
@@ -2209,7 +2315,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e108",
@@ -2227,7 +2334,8 @@
       "organizer_id": "house_of_creative",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "House of Creative"
     },
     {
       "id": "e109",
@@ -2245,7 +2353,8 @@
       "organizer_id": "schack",
       "registration_required": true,
       "drop_in": false,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Schackturnering"
     },
     {
       "id": "e110",
@@ -2263,7 +2372,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e111",
@@ -2281,7 +2391,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e112",
@@ -2299,7 +2410,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e113",
@@ -2317,7 +2429,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e114",
@@ -2335,7 +2448,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "VM-fotboll"
     },
     {
       "id": "e115",
@@ -2353,7 +2467,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e116",
@@ -2371,7 +2486,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e117",
@@ -2389,7 +2505,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e118",
@@ -2407,7 +2524,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e119",
@@ -2425,7 +2543,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e120",
@@ -2443,7 +2562,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e121",
@@ -2461,7 +2581,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e122",
@@ -2479,7 +2600,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e123",
@@ -2497,7 +2619,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e124",
@@ -2515,7 +2638,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e125",
@@ -2533,7 +2657,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e126",
@@ -2551,7 +2676,8 @@
       "organizer_id": "friskis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Friskis"
     },
     {
       "id": "e127",
@@ -2569,7 +2695,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e128",
@@ -2587,7 +2714,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e129",
@@ -2605,7 +2733,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e130",
@@ -2623,7 +2752,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e131",
@@ -2641,7 +2771,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e132",
@@ -2659,7 +2790,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e133",
@@ -2677,7 +2809,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e134",
@@ -2695,7 +2828,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e135",
@@ -2713,7 +2847,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e136",
@@ -2731,7 +2866,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e137",
@@ -2749,7 +2885,8 @@
       "organizer_id": "schack",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "30–70 år"
+      "age_info": "30–70 år",
+      "title_short": "Datingschack"
     },
     {
       "id": "e138",
@@ -2767,7 +2904,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e139",
@@ -2785,7 +2923,8 @@
       "organizer_id": "dromfabriken",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Drömfabriken"
     },
     {
       "id": "e140",
@@ -2803,7 +2942,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e141",
@@ -2821,7 +2961,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e142",
@@ -2839,7 +2980,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e143",
@@ -2857,7 +2999,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e144",
@@ -2875,7 +3018,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e145",
@@ -2893,7 +3037,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e146",
@@ -2911,7 +3056,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e147",
@@ -2929,7 +3075,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e148",
@@ -2947,7 +3094,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e149",
@@ -2965,7 +3113,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e150",
@@ -2983,7 +3132,8 @@
       "organizer_id": "dromfabriken",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Drömfabriken"
     },
     {
       "id": "e151",
@@ -3001,7 +3151,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e152",
@@ -3019,7 +3170,8 @@
       "organizer_id": "judoklubb",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Judo"
     },
     {
       "id": "e153",
@@ -3037,7 +3189,8 @@
       "organizer_id": "familjen_svangsson",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Familjen Svängsson"
     },
     {
       "id": "e154",
@@ -3055,7 +3208,8 @@
       "organizer_id": "returpunkten",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 12 år"
+      "age_info": "Från 12 år",
+      "title_short": "PiffUp"
     },
     {
       "id": "e155",
@@ -3073,7 +3227,8 @@
       "organizer_id": "schack",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18–70 år"
+      "age_info": "18–70 år",
+      "title_short": "BungyPump Schack"
     },
     {
       "id": "e156",
@@ -3091,7 +3246,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e157",
@@ -3109,7 +3265,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e158",
@@ -3127,7 +3284,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e159",
@@ -3145,7 +3303,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e160",
@@ -3163,7 +3322,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e161",
@@ -3181,7 +3341,8 @@
       "organizer_id": "forebyggande",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Startpunkten"
     },
     {
       "id": "e162",
@@ -3199,7 +3360,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e163",
@@ -3217,7 +3379,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e164",
@@ -3235,7 +3398,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e165",
@@ -3253,7 +3417,8 @@
       "organizer_id": "dromfabriken",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Drömfabriken"
     },
     {
       "id": "e166",
@@ -3271,7 +3436,8 @@
       "organizer_id": "filmstadens_kultur",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Filmstaden"
     },
     {
       "id": "e167",
@@ -3289,7 +3455,8 @@
       "organizer_id": "folkets_hus",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sommarbio"
     },
     {
       "id": "e168",
@@ -3307,7 +3474,8 @@
       "organizer_id": "kulturskola",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Kulturskola"
     },
     {
       "id": "e169",
@@ -3325,7 +3493,8 @@
       "organizer_id": "zouk",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Zouk"
     },
     {
       "id": "e170",
@@ -3343,7 +3512,8 @@
       "organizer_id": "guest_dj",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Gäst-DJ"
     },
     {
       "id": "e171",
@@ -3361,7 +3531,8 @@
       "organizer_id": "en_garde",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Från 4 år"
+      "age_info": "Från 4 år",
+      "title_short": "Fäktning"
     },
     {
       "id": "e172",
@@ -3379,7 +3550,8 @@
       "organizer_id": "crossfit",
       "registration_required": true,
       "drop_in": false,
-      "age_info": "18+"
+      "age_info": "18+",
+      "title_short": "CrossFit"
     },
     {
       "id": "e173",
@@ -3397,7 +3569,8 @@
       "organizer_id": "bordtennis",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Pingis"
     },
     {
       "id": "e174",
@@ -3415,7 +3588,8 @@
       "organizer_id": "forebyggande",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Startpunkten"
     },
     {
       "id": "e175",
@@ -3433,7 +3607,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e176",
@@ -3451,7 +3626,8 @@
       "organizer_id": "solna_bibliotek",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Biblioteket"
     },
     {
       "id": "e177",
@@ -3469,7 +3645,8 @@
       "organizer_id": "lillys",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Musikquiz"
     },
     {
       "id": "e178",
@@ -3487,7 +3664,8 @@
       "organizer_id": "fritidsbiblioteket",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Sportaktiviteter"
     },
     {
       "id": "e179",
@@ -3505,7 +3683,8 @@
       "organizer_id": "dromfabriken",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Drömfabriken"
     },
     {
       "id": "e180",
@@ -3523,7 +3702,8 @@
       "organizer_id": "livemusik",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Livemusik"
     },
     {
       "id": "e181",
@@ -3541,7 +3721,8 @@
       "organizer_id": "simone_moreno",
       "registration_required": false,
       "drop_in": true,
-      "age_info": null
+      "age_info": null,
+      "title_short": "Simone Moreno"
     },
     {
       "id": "e183",
@@ -3559,7 +3740,8 @@
       "organizer_id": "solna_stad",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Barn"
+      "age_info": "Barn",
+      "title_short": "Ansiktsmålning"
     },
     {
       "id": "e184",
@@ -3577,7 +3759,8 @@
       "organizer_id": "solna_stad",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Barn"
+      "age_info": "Barn",
+      "title_short": "Pyssel"
     },
     {
       "id": "e182a",
@@ -3595,7 +3778,8 @@
       "organizer_id": "solis_solrosa",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Barn"
+      "age_info": "Barn",
+      "title_short": "Solis & Solrosa"
     },
     {
       "id": "e182b",
@@ -3613,7 +3797,8 @@
       "organizer_id": "solis_solrosa",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Barn"
+      "age_info": "Barn",
+      "title_short": "Solis & Solrosa"
     },
     {
       "id": "e182c",
@@ -3631,7 +3816,8 @@
       "organizer_id": "solis_solrosa",
       "registration_required": false,
       "drop_in": true,
-      "age_info": "Barn"
+      "age_info": "Barn",
+      "title_short": "Solis & Solrosa"
     }
   ]
 }
