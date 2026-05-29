@@ -81,9 +81,9 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
 .tl-hour-label{position:absolute;right:4px;font-size:9px;font-weight:600;color:var(--muted);transform:translateY(-50%);white-space:nowrap;pointer-events:none}
 .tl-now-line{position:absolute;left:0;right:0;border-top:2px solid var(--red);pointer-events:none;z-index:20}
 .tl-now-dot{position:absolute;left:-4px;width:8px;height:8px;background:var(--red);border-radius:50%;top:-4px}
-.tl-event{position:absolute;border-radius:5px;padding:3px 6px;font-size:10px;font-weight:600;cursor:pointer;overflow:hidden;z-index:5;line-height:1.35;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.tl-event{position:absolute;border-radius:5px;padding:3px 6px;font-size:12px;font-weight:700;cursor:pointer;overflow:hidden;z-index:5;line-height:1.35;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .tl-event:active{opacity:.75;z-index:15}
-.tl-event .et{font-size:9px;font-weight:400;opacity:.85}
+.tl-event .et{font-size:10px;font-weight:500;opacity:.85}
 
 /* ═══ WEEK ═══ */
 .week-outer{border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden}
@@ -163,8 +163,8 @@ main{max-width:1200px;margin:0 auto;padding:16px 16px 80px}
   main{padding:20px 32px 48px}
   .tl-gutter{width:52px}
   .tl-hour-label{font-size:10px;right:6px}
-  .tl-event{font-size:11px;padding:4px 8px}
-  .tl-event .et{font-size:10px}
+  .tl-event{font-size:13px;padding:4px 8px}
+  .tl-event .et{font-size:11px}
   .week-day-col-hdr{padding:10px 4px 8px}
   .week-day-name{font-size:11px}
   .week-day-num{font-size:22px}
@@ -429,6 +429,11 @@ function updateControls(){
   const isList=displayMode==='list';
   ['mToggleCal'].forEach(id=>{const el=document.getElementById(id);if(el)el.className='view-toggle-btn'+(isList?'':' active');});
   ['mToggleList'].forEach(id=>{const el=document.getElementById(id);if(el)el.className='view-toggle-btn'+(isList?' active':'');});
+
+  // Hide nav/period in list mode (shows all at once)
+  document.querySelectorAll('.nav-btn,.period-label').forEach(el=>{
+    el.style.visibility=isList?'hidden':'visible';
+  });
 
   // Bottom nav: calendar views hidden in list mode
   ['bnMonth','bnWeek','bnDay'].forEach(id=>{
@@ -835,40 +840,50 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 // ── LIST VIEW ──
 function renderList(){
   const el=document.getElementById('calendarMain');
-  const y=cursor.getFullYear(),m=cursor.getMonth();
-  const firstDay=new Date(y,m,1);
-  const lastDay=new Date(y,m+1,0);
   const dn=lang==='sv'?DAYS_SV:DAYS_EN;
   const mo=lang==='sv'?MONTHS_SV:MONTHS_EN;
   const u=UI[lang];
+  const today=new Date(); today.setHours(0,0,0,0);
 
-  // Collect all days in month that have events
-  let hasAny=false;
+  // Iterate the full season: May 30 – Aug 30 2026
+  const seasonStart=new Date(2026,4,30);
+  const seasonEnd=new Date(2026,7,30);
+
   let html=`<div class="list-view">`;
+  let hasAny=false;
+  let currentMonth=-1;
 
-  for(let d=1;d<=lastDay.getDate();d++){
-    const dt=new Date(y,m,d);
+  for(let dt=new Date(seasonStart); dt<=seasonEnd; dt.setDate(dt.getDate()+1)){
     const dateS=ds(dt);
+    // Skip past dates (before today)
+    const dtCopy=new Date(dt); dtCopy.setHours(0,0,0,0);
+    if(dtCopy<today) continue;
+
     const evs=eventsForDate(dateS);
-    const{banners,timed}=classifyEvents(evs);
-    if(evs.length===0)continue;
+    const isMid=dateS==='2026-06-19';
+    if(evs.length===0 && !isMid) continue;
     hasAny=true;
 
+    // Month heading when month changes
+    if(dt.getMonth()!==currentMonth){
+      currentMonth=dt.getMonth();
+      html+=`<div class="list-month-heading">${mo[currentMonth]} ${dt.getFullYear()}</div>`;
+    }
+
+    const{banners,timed}=classifyEvents(evs);
     const wd=(dt.getDay()+6)%7;
-    const today=isToday(dt);
-    const isMid=dateS==='2026-06-19';
+    const isToday_=isToday(dt);
 
     html+=`<div class="list-date-group">`;
     html+=`<div class="list-date-header">
-      <span class="list-date-day">${d}</span>
-      <span class="list-date-weekday">${dn[wd]}</span>
-      ${today?`<span class="list-date-today">${u.idag}</span>`:''}
+      <span class="list-date-day">${dt.getDate()}</span>
+      <span class="list-date-weekday">${mo[dt.getMonth()].slice(0,3)} · ${dn[wd]}</span>
+      ${isToday_?`<span class="list-date-today">${u.idag}</span>`:''}
     </div>`;
 
     if(isMid){
       html+=`<div class="list-midsommar">🌸 Midsommarafton – inga aktiviteter</div>`;
-    } else {
-      // All-day banners as small pills
+    }else{
       if(banners.length){
         html+=`<div class="list-banner-strip">`;
         banners.forEach(e=>{
@@ -880,7 +895,6 @@ function renderList(){
         html+=`</div>`;
       }
 
-      // Timed events sorted by start
       const sorted=[...timed].sort((a,b)=>{
         if(!a.time_start&&!b.time_start)return 0;
         if(!a.time_start)return 1;
@@ -892,9 +906,7 @@ function renderList(){
       sorted.forEach(e=>{
         const col=catColor(e.category);
         const ti=lang==='sv'?e.title_sv:e.title_en;
-        const timeStr=e.time_start
-          ?`${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`
-          :'';
+        const timeStr=e.time_start?`${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`: '';
         const catLbl=catLabel(e.category);
         html+=`<div class="list-event" onclick="showEvent('${e.id}')">
           <div class="list-event-accent" style="background:${col}"></div>
@@ -915,7 +927,7 @@ function renderList(){
   }
 
   if(!hasAny){
-    html+=`<div class="list-empty">🌞 ${u.noEventsMonth}</div>`;
+    html+=`<div class="list-empty">🌞 ${lang==='sv'?'Inga fler aktiviteter denna säsong.':'No more activities this season.'}</div>`;
   }
 
   html+=`</div>`;
