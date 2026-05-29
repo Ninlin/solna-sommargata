@@ -652,12 +652,16 @@ function buildTimelineBody(dateS){
     const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
     const height=Math.max((em-sm)*PPM,20);
     const col=catColor(e.category);
-    const ti=lang==='sv'?e.title_sv:e.title_en;
-    // within FREE_W, divide equally among slots
+    const ti=total>1
+      ? (e.title_short || (lang==='sv'?e.title_sv:e.title_en))
+      : (lang==='sv'?e.title_sv:e.title_en);
+    const timeLabel=total>1
+      ? fmt(e.time_start)   // start time only when cramped
+      : `${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}`;
     const slotW=FREE_W/total;
     const left=slot*slotW;
     html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${left}% + ${GAP}px);width:calc(${slotW}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
-      <div class="et">${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}</div>
+      <div class="et">${timeLabel}</div>
       <div>${ti}</div>
     </div>`;
   });
@@ -667,7 +671,7 @@ function buildTimelineBody(dateS){
     const top=PAD+Math.max(0,sm-TL_START*60)*PPM;
     const height=Math.max((em-sm)*PPM,20);
     const col=catColor(e.category);
-    const ti=lang==='sv'?e.title_sv:e.title_en;
+    const ti=e.title_short||(lang==='sv'?e.title_sv:e.title_en);
     html+=`<div class="tl-event" style="top:${top}px;height:${height}px;background:${col}28;border:1px solid ${col}88;border-left:3px solid ${col};color:${col};left:calc(${FREE_W}% + ${GAP}px);width:calc(${PIN_W}% - ${GAP*2}px)" onclick="showEvent('${e.id}')">
       <div class="et">${fmt(e.time_start)}${e.time_end?'–'+fmt(e.time_end):''}</div>
       <div>${ti}</div>
